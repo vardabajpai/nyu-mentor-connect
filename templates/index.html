@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYU Mentor Connect | Join the Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --nyu-purple: #57068c;
+            --nyu-purple-dark: #3d0563;
+            --nyu-purple-light: #8033b0;
+            --cream: #faf9f7;
+            --warm-white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-muted: #6b6b6b;
+            --accent-gold: #d4a853;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            min-height: 100vh;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(87, 6, 140, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(87, 6, 140, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 168, 83, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--nyu-purple);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(87, 6, 140, 0.3);
+        }
+
+        .logo-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--nyu-purple);
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            flex: 1;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .info-section {
+            padding-right: 24px;
+        }
+
+        .info-section h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .info-section h1 span {
+            color: var(--nyu-purple);
+        }
+
+        .info-section p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 440px;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .feature-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--nyu-purple) 0%, var(--nyu-purple-light) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(87, 6, 140, 0.25);
+        }
+
+        .feature-icon svg {
+            width: 18px;
+            height: 18px;
+            color: white;
+        }
+
+        .feature-text h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .feature-text p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .form-section {
+            background: var(--warm-white);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.02),
+                0 12px 40px rgba(87, 6, 140, 0.08);
+            border: 1px solid rgba(87, 6, 140, 0.06);
+        }
+
+        .form-header {
+            margin-bottom: 28px;
+        }
+
+        .form-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .form-header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 500px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            background: var(--warm-white);
+            color: var(--text-dark);
+            transition: all 0.2s ease;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .form-group input::placeholder {
+            color: #a0a0a0;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--nyu-purple);
+            box-shadow: 0 0 0 4px rgba(87, 6, 140, 0.1);
+        }
+
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 44px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+            color: white;
+            background: linear-gradient(135deg, var(--nyu-purple) 0%, var(--nyu-purple-dark) 100%);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(87, 6, 140, 0.35);
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(87, 6, 140, 0.45);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 48px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--nyu-purple);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .info-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .form-section {
+            animation: fadeInUp 0.6s ease-out 0.15s backwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <span class="logo-text">NYU Mentor Connect</span>
+            </div>
+            <p class="tagline">Connect with students who've been where you're going</p>
+        </header>
+
+        <main class="main-content">
+            <section class="info-section">
+                <h1>Find your <span>perfect mentor</span> at NYU</h1>
+                <p>Get personalized advice from students who've navigated the exact challenges you're facing—career pivots, school transfers, internship hunts, and more.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 6v6l4 2"></path>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Real Experience</h3>
+                            <p>Learn from students who've actually done it</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Personalized Matches</h3>
+                            <p>Filter by school, major, and experience</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <h3>100% Free</h3>
+                            <p>Built by students, for students</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="form-header">
+                    <h2>Join the waitlist</h2>
+                    <p>Be the first to know when we launch</p>
+                </div>
+
+                {% if error %}
+                <div class="error-message">{{ error }}</div>
+                {% endif %}
+
+                <form action="/register" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first_name">First Name</label>
+                            <input type="text" id="first_name" name="first_name" placeholder="Jane" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" id="last_name" name="last_name" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">NYU Email</label>
+                        <input type="email" id="email" name="email" placeholder="jd1234@nyu.edu" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="graduation_year">Graduation Year</label>
+                            <select id="graduation_year" name="graduation_year" required>
+                                <option value="" disabled selected>Select year</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="school">School at NYU</label>
+                            <select id="school" name="school" required>
+                                <option value="" disabled selected>Select school</option>
+                                <option value="College of Arts & Science (CAS)">College of Arts & Science (CAS)</option>
+                                <option value="Stern School of Business">Stern School of Business</option>
+                                <option value="Tandon School of Engineering">Tandon School of Engineering</option>
+                                <option value="Tisch School of the Arts">Tisch School of the Arts</option>
+                                <option value="Gallatin School of Individualized Study">Gallatin School of Individualized Study</option>
+                                <option value="Steinhardt School">Steinhardt School</option>
+                                <option value="Silver School of Social Work">Silver School of Social Work</option>
+                                <option value="School of Professional Studies (SPS)">School of Professional Studies (SPS)</option>
+                                <option value="Rory Meyers College of Nursing">Rory Meyers College of Nursing</option>
+                                <option value="Liberal Studies">Liberal Studies</option>
+                                <option value="NYU Shanghai">NYU Shanghai</option>
+                                <option value="NYU Abu Dhabi">NYU Abu Dhabi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Join the Waitlist →</button>
+                </form>
+
+                <p class="form-footer">We'll notify you when NYU Mentor Connect launches.</p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Built with 💜 for the NYU community</p>
+        </footer>
+    </div>
+</body>
+</html>
