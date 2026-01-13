@@ -1,0 +1,9 @@
+[build]
+builder = "nixpacks"
+
+[build.nixpacks]
+nixPkgs = ["python311"]
+aptPkgs = ["libpq-dev"]
+
+[deploy]
+startCommand = "gunicorn app:app --bind 0.0.0.0:$PORT"
